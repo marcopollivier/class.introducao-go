@@ -1,0 +1,60 @@
+Fundamentos de Golang
+
+Vamos ver que Go não é apenas uma linguagem do Google
+
+31 Jul 2019
+
+Tags: Go, golang, olx, inverno
+
+Marco Ollivier
+
+Software Engineer, OLX
+
+marco.ollivier@olxbr.com
+
+https://ollivier.com.br
+
+@marcopollivier
+
+
+* Title of slide or section (must have asterisk)
+
+: Presenter notes (first paragraph)
+
+Some Text
+
+** Subsection
+
+- bullets
+- more bullets
+- a bullet with
+
+*** Sub-subsection
+
+xxx
+
+* Title of slide or section (must have asterisk)
+
+Some More text
+
+  Preformatted text
+  is indented (however you like)
+
+Further Text, including invocations like:
+
+.code x.go /^func main/,/^}/
+
+* Title of slide or section (must have asterisk)
+
+.play x.go
+
+* Title of slide or section (must have asterisk)
+
+.image image.jpg
+.background image.jpg
+.iframe http://foo
+.link http://foo label
+.html file.html
+.caption _Gopher_ by [[https://www.instagram.com/reneefrench/][Renée French]]
+
+Again, more text
