@@ -10,15 +10,15 @@ func main() {
 		i++
 	}
 
-	for j := 1; j < 9; j++ {
+	for j := 4; j < 7; j++ {
 		fmt.Print(j)
 	}
 
-	var k = 1
+	var k = 7
 	for {
-		k++
 		fmt.Print(k)
-		if k == 9 {
+		k++
+		if k > 9 {
 			break
 		}
 	}
