@@ -1,60 +1,138 @@
+################################################################################################################
 Fundamentos de Golang
-
-Vamos ver que Go não é apenas uma linguagem do Google
-
-31 Jul 2019
-
-Tags: Go, golang, olx, inverno
+Vamos ver que Go não é apenas a linguagem do Google
 
 Marco Ollivier
-
 Software Engineer, OLX
-
 marco.ollivier@olxbr.com
-
 https://ollivier.com.br
 
 @marcopollivier
 
+################################################################################################################
+* O que vamos ver nesse curso
 
-* Title of slide or section (must have asterisk)
+* Dia 1
+- Um pouco de história
+- Variáveis e Tipos de dados
+- Fundamentos do Go (Tipos de funções. Interfaces. Etc)
 
-: Presenter notes (first paragraph)
+* Dia 2
+- Ponteiros
+- Concorrência 
+- Construindo uma API
 
-Some Text
+* Se der tempo...
+- Go 2.0
+- Mock 
+- Testes
 
-** Subsection
+################################################################################################################
+*  
 
-- bullets
-- more bullets
-- a bullet with
+.background img/marcoollivier.png
 
-*** Sub-subsection
+################################################################################################################
+* Quem são vocês? 
 
-xxx
 
-* Title of slide or section (must have asterisk)
+################################################################################################################
+* O que Go não é? 
 
-Some More text
+################################################################################################################
+* Go não é apenas um C com vidro elétrico
 
-  Preformatted text
-  is indented (however you like)
+Existe influência da herança do C, mas Go vai além...
 
-Further Text, including invocations like:
+"(Go) ... apresenta e adapta boas ideias de várias outras linaguagens, ao mesmo tempo que evita funcionalidades que resultam em complexidade e em códigos não confiáveis."
 
-.code x.go /^func main/,/^}/
+- Recursos novos e eficientes de concorrência 
+- Recursos para abstração de dados e OO são muito bons 
+- Gerenciamento de memória automático (GC)
 
-* Title of slide or section (must have asterisk)
+################################################################################################################
+* Mas herdou muita coisa legal (C para o século XXI)
 
-.play x.go
+- Sintaxe de suas expressões
+- Intruções de controle de fluxo
+- Tipos básicos de dados
+- Passagem de parâmetro por valor
+- Ponteiros
+- Geração de código de máquina eficiente
 
-* Title of slide or section (must have asterisk)
+################################################################################################################
+* Case Everest... sim, o Everest de Accounts
 
-.image image.jpg
-.background image.jpg
-.iframe http://foo
-.link http://foo label
-.html file.html
-.caption _Gopher_ by [[https://www.instagram.com/reneefrench/][Renée French]]
+################################################################################################################
+* Outras influências 
 
-Again, more text
+- Modula-2 e Oberon-2: conceito de pacotes
+- CSP (linguagem acadêmica): fundamentos de concorrência
+
+################################################################################################################
+* 
+.image img/ancestors.png
+
+################################################################################################################
+* Go não é apenas para CLI
+
+- Go é muito bom para criação de CLIs 
+- Backend
+- Aplicações Móveis 
+- ML 
+- IoT
+
+################################################################################################################
+* Cases de muito sucesso
+
+- Docker
+- Kubernetes 
+- Runner Gitlab CI 
+- Traefik
+
+################################################################################################################ 
+* Go não é só uma linguagem do Google
+
+- Go nasceu com um propósito, digamos, modesto
+- A linguagem escalou e a comunidade ganhou força
+- Generics
+- Tratamento de erros
+- Gerenciamento de dependência
+
+################################################################################################################
+* Linha do tempo 
+
+- Criada em 2007 por Robert Griesemer, Rob Pike e Ken Thompson
+
+- Lançada em 2009
+
+- Go 1 (Março 2012)
+- Go 1.1 (Maio 2013)
+- (...)
+- Go 1.11 (Agosto 2018)
+- Go 1.12 (Fevereiro 2019)
+
+################################################################################################################ 
+* "Go é uma linguagem de programação de código aberto que facilita a criação de softwares simples, confiáveis e eficientes"
+
+################################################################################################################ 
+* Go não é só do Google!!!!
+
+################################################################################################################ 
+* Go não é só do Google!!!!
+
+- Linguagens nascem com filosofias com viés de seus criadores
+- Normalmente também é influenciado por deficiências de outras Linguagens
+
+################################################################################################################ 
+* Go não é só do Google!!!!
+
+- Go nasceu por conta da complexidade de códigos de soluções do Google
+
+Convenhamos que não é só o Google que tem problemas com complexidade de soluções
+
+Então...
+
+################################################################################################################ 
+* Go não é só do Google!!!!
+
