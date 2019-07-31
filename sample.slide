@@ -225,6 +225,9 @@ Go é uma linguagem multiparadigma
 - pkg 
 
 ################################################################################################################ 
+* Primeiros passos
+
+################################################################################################################ 
 * Hello, World!
 
 Um clássico... começar pelo Hello, World!
@@ -401,6 +404,110 @@ Variável apenas no escopo do if (num)
 
     }
 
+################################################################################################################ 
+* Funções
+
+################################################################################################################ 
+* Funções
+
+    func hello() {
+        ...
+    }
+    
+    func hello(nome string) {
+        ...
+    }
+    
+    func hello(nome string) string {
+        ...
+    }
+
+################################################################################################################ 
+* Funções
+
+Isso
+
+    func hello(nome string) string {
+        return "Hello, " + nome
+    }
+
+é diferente disso
+
+    func Hello(nome string) string {
+        return "Hello, " + nome
+    }
+
+################################################################################################################ 
+* Funções - Multiplos retornos
+
+    func valores() (int, int) {
+        return 3, 1
+    }
+
+    ... 
+
+    a, b := valores()
+
+Também pode nomear... escopo da variável apenas dentro da função
+
+    func valores() (ret1 int, ret2 int) {
+        ret1 = 3
+        ret1 = 1
+        
+        return ret1, ret2
+    }
+    
+################################################################################################################ 
+* Funções - Multiplos retornos
+
+Blank identifier
+
+    func valores() (int, int) {
+        return 3, 1
+    }
+
+    ... 
+
+    _, b := valores()
+
+
+################################################################################################################ 
+* Exercício - Funções - Resultado esperado
+
+Criar uma função que espere um nome como parâmetro e retorne a frase: olá, <nome>
+
+################################################################################################################ 
+* Exercício - Funções - Resultado esperado
+
+.play funcoes/main.go
+
+################################################################################################################ 
+* Structs
+
+################################################################################################################ 
+* Structs
+
+- Basicamente é uma coleção de campos tipados. 
+- Podemos fazer uma relação com uma Classe. 
+
+    type person struct { 
+        name string
+    }
+
+    ... 
+
+    person{name: "Marco"}
+    
+    ...
+
+    person{"Marco"}
+    
+################################################################################################################ 
+* Structs
+
+- Suporte limitado a O.O.
+- Sem suporte a herança
+- Com suporte a composição 
 
 
 
@@ -412,6 +519,14 @@ Variável apenas no escopo do if (num)
 
 
 
+
+## interfaces, error handling
+
+################################################################################################################
+* Dia 2
+
+################################################################################################################
+* Ponteiros
 
 ################################################################################################################ 
 * Referências Go
