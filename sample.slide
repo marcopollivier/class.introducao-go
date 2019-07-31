@@ -71,7 +71,7 @@ Existe influência da herança do C, mas Go vai além...
 * Mas herdou muita coisa legal (C para o século XXI)
 
 - Sintaxe de suas expressões
-- Intruções de controle de fluxo
+- Intruções de conxtrole de fluxo
 - Tipos básicos de dados
 - Passagem de parâmetro por valor
 - Ponteiros
@@ -290,6 +290,16 @@ O pacote fmt implementa I/O formatado
 .link https://golang.org/pkg/fmt/
 
 ################################################################################################################ 
+* Pacotes
+
+- Lower case
+- De preferência uma única palavra 
+- se necessário: algo parecido com um camelCase
+- nunca usar a_a_a
+- Não se preocupe com nomes repetidos
+- Possibilidade de 
+
+################################################################################################################ 
 * Tipos de import
 
 .code hello/main.go
@@ -329,13 +339,25 @@ Lembrando que as variáveis em Go tem:
     nome := marco //abreviada
 
 ################################################################################################################ 
-* Variáveis
+* Variáveis não utilizadas 
+
+Variáveis não utilizadas geram erro de compilação
+
+    func main() {
+        var x string
+    }
+
+################################################################################################################ 
+* Constantes
 
 Acaba se comportando de forma parecida
 
     const aceleracaoGravitacional float64
 
     const aceleracaoGravitacional float64 = 9,80665
+
+################################################################################################################
+* Go fmt
 
 ################################################################################################################ 
 * Exercício - Variáveis e constantes
@@ -475,6 +497,10 @@ Blank identifier
 
     _, b := valores()
 
+################################################################################################################ 
+* Defer
+
+.play exemploDefer/main.go
 
 ################################################################################################################ 
 * Exercício - Funções - Resultado esperado
@@ -582,10 +608,105 @@ Sufixo: cer
 
 .play structs/main.go
 
+################################################################################################################ 
+* Interface
 
+    type geometria interface {
+        area() float64
+        perim() float64
+    }
 
+################################################################################################################ 
+* Interface
 
-## interfaces, error handling
+    func (q quadrado) area() float64 {
+        return q.largura * q.altura
+    }
+    func (q quadrado) perim() float64 {
+        return 2*q.largura + 2*q.altura
+    }
+
+    func (c circulo) area() float64 {
+        return math.Pi * c.raio * c.raio
+    }
+    func (c circulo) perim() float64 {
+        return 2 * math.Pi * c.raio
+    }
+
+################################################################################################################ 
+* Interface
+
+    func medir(g geometria) {
+        fmt.Println(g)
+        fmt.Println(g.area())
+        fmt.Println(g.perim())
+    }
+
+    func main() {
+        q := quadrado{largura: 3, altura: 4}
+        c := circulo{raio: 5}
+
+        medir(q)
+        medir(c)
+    }
+
+################################################################################################################ 
+* Interface
+
+Caso você não implemente uma das funções...
+
+    ./prog.go:42:10: cannot use c (type círculo) as type geometria in argument to medir: círculo does not implement geometria (missing perim method)
+
+################################################################################################################ 
+* Interface
+
+.play exemploInterface/main.go /^func main/,/^}/
+
+################################################################################################################
+* Exercício - Interface
+
+Vamos implementar e adicionar outras figuras geométricas ao modelo anterior
+
+################################################################################################################
+* Error handling
+
+Vamos começar dizendo que você pode omitir erros, mas não é indicado
+
+    import "fmt"
+    import "strconv"
+
+    func main() {
+        b, _ := strconv.ParseBool("true")
+        fmt.Println(b)
+    }
+
+################################################################################################################
+* Error handling
+
+Atualmente nós tratamos erro com if's e talvez você ache isso muito estranho
+
+    import "fmt"
+    import "strconv"
+
+    func main() {
+        b, _ := strconv.ParseBool("true")
+        fmt.Println(b)
+    }
+
+################################################################################################################
+* Error handling
+
+Atualmente nós tratamos erro com if's e talvez você ache isso muito estranho
+
+    func main() {
+        b, err := strconv.ParseBool("true")
+        
+        if err != nil {
+            fmt.Println(err)
+        }
+        
+        fmt.Println(b)
+    }
 
 ################################################################################################################
 * Dia 2
@@ -597,7 +718,7 @@ Sufixo: cer
 * Concorrência
 
 ################################################################################################################
-* API REST
+* Web Service 
 
 ################################################################################################################ 
 * Referências Go
@@ -606,6 +727,8 @@ Sufixo: cer
 .link https://eltonminetto.net/post/2019-06-01-object-calisthenics-golang/ Object Calisthenics em Golang
 .link http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/ 50 shades of Go 
 .link https://gobyexample.com Go by Example
+Effective Go
+Code Review Comments
 
 * Referências extras 
 
