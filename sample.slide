@@ -36,6 +36,11 @@ https://ollivier.com.br
 ################################################################################################################
 * Quem são vocês? 
 
+- Qual o seu nome? 
+- Qual o seu time? 
+- Qual a sua expectativa?
+- O que você mais gostaria de ver?
+
 ################################################################################################################
 * Comunidade Go
 
@@ -502,6 +507,19 @@ Criar uma função que espere um nome como parâmetro e retorne a frase: olá, <
 
     person{"Marco"}
     
+################################################################################################################    
+* Structs 
+
+    type person struct { 
+        name string
+    }
+
+    func main() {
+
+        fmt.Print(person{name: "Marco"})
+
+    }
+    
 ################################################################################################################ 
 * Structs
 
@@ -509,13 +527,60 @@ Criar uma função que espere um nome como parâmetro e retorne a frase: olá, <
 - Sem suporte a herança
 - Com suporte a composição 
 
+    type address struct {
+        street string
+    }
+
+    type person struct {
+        name string
+        address address 
+    }
+
+    func main() {
+        
+        a := address{"Rua do Catete"}
+        p := person{name: "Fred", address: a}
+        fmt.Println(p) 
+
+        //{Fred {Rua do Catete}}
+
+    }
+
+################################################################################################################ 
+* Structs - Métodos
+
+    type retangulo struct { 
+        largura, altura int
+    }
+
+    func (ret retangulo) area() int {
+        return ret.largura * ret.altura
+    }
+
+    func main() {
+        var retanguloEquilatero = retangulo{altura: 2, largura: 2}
+        area := retanguloEquilatero.area()
+
+        fmt.Println(area) //4
+    }
 
 
+################################################################################################################ 
+* Exercício - Structs 
 
+É possível derivar uma palavra por meio do seu prefixo + radical + sufixo 
 
+- Crie uma Struct que contenha esses elementos separados 
+- Crie um método que imprima a palavra anoitecer
 
+Prefixo: A
+Radical: noite 
+Sufixo: cer
 
+################################################################################################################ 
+* Exercício - Structs - Resultado esperado
 
+.play structs/main.go
 
 
 
@@ -527,6 +592,12 @@ Criar uma função que espere um nome como parâmetro e retorne a frase: olá, <
 
 ################################################################################################################
 * Ponteiros
+
+################################################################################################################
+* Concorrência
+
+################################################################################################################
+* API REST
 
 ################################################################################################################ 
 * Referências Go
