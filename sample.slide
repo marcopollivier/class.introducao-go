@@ -16,6 +16,7 @@ https://ollivier.com.br
 - Um pouco de história
 - Variáveis e Tipos de dados
 - Fundamentos do Go (Tipos de funções. Interfaces. Etc)
+- Tratamento de erros
 
 * Dia 2
 - Ponteiros
@@ -35,6 +36,17 @@ https://ollivier.com.br
 ################################################################################################################
 * Quem são vocês? 
 
+################################################################################################################
+* Comunidade Go
+
+.link https://invite.slack.golangbridge.org/ invite.slack.golangbridge.org
+
+.link http://2019.gopherconbr.org gopherconbr.org
+
+.link https://www.meetup.com/GopheRio/ meetup.com/GopheRio
+
+################################################################################################################
+* Dia 1
 
 ################################################################################################################
 * O que Go não é? 
@@ -135,4 +147,180 @@ Então...
 
 ################################################################################################################ 
 * Go não é só do Google!!!!
+
+################################################################################################################ 
+* Com a palavra: Ryan Dahl, criador do Node.JS
+
+"[...] I think Node is not the best system to build a massive server web. I would use Go for that. And honestly, that’s the reason why I left Node. It was the realization that: oh, actually, this is not the best server-side system ever."
+
+--
+
+"[...] eu acho que o Node não é o melhor sistema para construir um servidor web massivo. Eu usaria o Go para isso. E honestamente, essa é a razão pela qual eu deixei o Node. Foi a percepção de que: oh, na verdade, não é o melhor sistema do lado do servidor. "
+
+.link https://edneypitta.com/on-node-go-concurrency/ https://edneypitta.com/on-node-go-concurrency/
+
+################################################################################################################ 
+* Go não é só do Google!!!!
+ 
+################################################################################################################ 
+* Vamos falar logo de pontos fracos
+
+- Generics
+- Polimorfismo
+- Regex (marromenos)
+- Tratamento atual de erros 
+
+################################################################################################################ 
+* Pontos fortes
+
+- Tipagem forte e estática
+- Inferência de tipo
+- Compilada
+- GC
+- Concorrência
+- Rápida
+- Simples
+- Até mesmo divertida
+
+################################################################################################################ 
+* Já falei que Go não é só do o Google? 
+
+################################################################################################################ 
+* Paradigma
+
+Go é uma linguagem multiparadigma
+
+- O.O. 
+- Procedural
+- funcional
+
+################################################################################################################ 
+* Chega de papo furado
+
+################################################################################################################ 
+* Instalando GO
+
+.link https://medium.com/responsive-br/gerencie-suas-versoes-go-com-gvm-69bf66a62db4
+ 
+################################################################################################################ 
+* Ambiente de desenvolvimento
+
+- Goland $$$
+- VS Code + Golang plugin
+- VIM 
+
+################################################################################################################ 
+* GOPATH e GOROOT
+
+- GOROOT
+    /Users/marco.ollivier/.gvm/gos/go1.12
+- GOPATH    
+    /Users/marco.ollivier/workspace-go
+
+################################################################################################################ 
+* A polêmica do ambiente Go e a versão 1.11
+
+- src
+- bin
+- pkg 
+
+################################################################################################################ 
+* Hello, World!
+
+Um clássico... começar pelo Hello, World!
+
+.play hello/main.go
+
+################################################################################################################ 
+* Exercício
+
+- Crie um diretório no caminho 
+
+    ~/workspace-go/src/github.com/<seuusuario>/olx-inverno-go/cmd/server 
+
+- Crie um arquivo main.go e escreva o código
+
+.code hello/main.go
+
+- Execute o comando 
+
+    $ go run main.go
+
+################################################################################################################ 
+* Exercício
+
+- Execute o comando 
+
+    $ go build main.go
+
+O que aconteceu?
+
+################################################################################################################ 
+* Exercício - Resultado esperado
+
+.play hello/main.go
+
+################################################################################################################ 
+* Hello, World ++
+
+Vamos fazer um Hello, World com parâmetros
+
+.code helloParametes/main.go 
+
+    $ go run helloParametes/main.go <Seu Nome>
+
+
+################################################################################################################ 
+* Pacote fmt
+
+O pacote fmt implementa I/O formatado
+
+- Análogo ao printf e scanf do C
+
+.code hello/main.go
+
+.link https://golang.org/pkg/fmt/
+
+################################################################################################################ 
+* Tipos de import
+
+.code hello/main.go
+
+.code helloParametes/main.go
+
+################################################################################################################ 
+* Package main e main function
+
+Define um ponto de entrada (Entrypoint)
+
+.code hello/main.go
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+################################################################################################################ 
+* Referências Go 
+
+.link https://golang.org/project/ Go project
+.link https://eltonminetto.net/post/2019-06-01-object-calisthenics-golang/ Object Calisthenics em Golang
+.link http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/ 50 shades of Go 
+.link https://gobyexample.com Go by Example
+
+
+
+* Referências extras 
+
+.link http://felipequadros.com/programa%C3%A7%C3%A3o/b%C3%A1sico/iniciante/geral/teoria/2016/06/05/tipagem-fraca-forte-est%C3%A1tica-din%C3%A2mica-e-inferencia-de-tipo/ Tipagens
+
 
