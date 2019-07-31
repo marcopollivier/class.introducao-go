@@ -232,7 +232,7 @@ Um clássico... começar pelo Hello, World!
 .play hello/main.go
 
 ################################################################################################################ 
-* Exercício
+* Exercício - Olá, mundo
 
 - Crie um diretório no caminho 
 
@@ -247,7 +247,7 @@ Um clássico... começar pelo Hello, World!
     $ go run main.go
 
 ################################################################################################################ 
-* Exercício
+* Exercício - Olá, mundo
 
 - Execute o comando 
 
@@ -256,7 +256,7 @@ Um clássico... começar pelo Hello, World!
 O que aconteceu?
 
 ################################################################################################################ 
-* Exercício - Resultado esperado
+* Exercício - Olá, mundo - Resultado esperado
 
 .play hello/main.go
 
@@ -295,7 +295,111 @@ Define um ponto de entrada (Entrypoint)
 
 .code hello/main.go
 
+################################################################################################################ 
+* Variáveis
 
+Go permite declarar variáveis de algumas formas 
+
+Lembrando que as variáveis em Go tem: 
+
+- Tipagem forte 
+- Tipagem estática
+- Inferência de tipo
+
+    var nome string
+
+    var valor1, valor2 int
+
+    var nome string = "Marco" //lint reclamaria
+
+    var valor1, valor2 int = 1, 2 //lint reclamaria
+
+    var nome = "Marco" //inferindo
+
+    var valor1, valor2 = 1, 2 //inferindo
+
+    nome := marco //abreviada
+
+################################################################################################################ 
+* Variáveis
+
+Acaba se comportando de forma parecida
+
+    const aceleracaoGravitacional float64
+
+    const aceleracaoGravitacional float64 = 9,80665
+
+################################################################################################################ 
+* Exercício - Variáveis e constantes
+
+Faça as declarações abaixo e as imprima com o fmt.Println
+
+- Defina seu CPF em uma constante 
+- Seu nome em uma variável com declaração explícita de tipo
+- o nome do seu pai com inferência simples 
+- o nome da sua mãe com inferência abreviada
+
+################################################################################################################ 
+* Exercício - Variáveis e constantes - Resultado esperado
+
+.play variaveis/main.go
+
+################################################################################################################ 
+* Laços de repetição
+
+Em Go não temos o conceito de While. Então tratamos laços de 3 maneiras 
+
+################################################################################################################ 
+* Laços de repetição - única condição
+
+	var i = 1
+	for i <= 3 {
+		fmt.Println(i)
+		i++
+	}
+
+################################################################################################################ 
+* Laços de repetição - tradicional
+
+	for j := 1; j < 9; j++ {
+		fmt.Println(j)
+	}
+
+################################################################################################################ 
+* Laços de repetição - break
+
+	var k = 1
+	for {
+		k++
+
+		if k == 9 {
+			break
+		}
+	}
+
+################################################################################################################ 
+* Laços de repetição
+
+.play loop/main.go /^func main/,/^}/
+
+
+################################################################################################################ 
+* if / else
+
+Um caso interessante de mostrar
+
+Variável apenas no escopo do if (num)
+
+    if num := 9; num < 0 {
+        fmt.Println(num, "é negativo")
+
+    } else if num < 10 {
+        fmt.Println(num, "tem 1 dígito")
+
+    } else {
+        fmt.Println(num, "tem vários dígitos")
+
+    }
 
 
 
@@ -310,14 +414,12 @@ Define um ponto de entrada (Entrypoint)
 
 
 ################################################################################################################ 
-* Referências Go 
+* Referências Go
 
 .link https://golang.org/project/ Go project
 .link https://eltonminetto.net/post/2019-06-01-object-calisthenics-golang/ Object Calisthenics em Golang
 .link http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/ 50 shades of Go 
 .link https://gobyexample.com Go by Example
-
-
 
 * Referências extras 
 
