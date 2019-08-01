@@ -715,39 +715,3 @@ Atualmente nós tratamos erro com if's e talvez você ache isso muito estranho
         
         fmt.Println(b)
     }
-
-################################################################################################################
-* Dia 2
-
-################################################################################################################
-* Ponteiros
-
-################################################################################################################
-* Concorrência
-
-################################################################################################################
-* Web Service 
-
-################################################################################################################ 
-* Livro: A Linguagem de Programação Go 
-
-.image img/refBook.jpg
-
-* Referências Go
-
-.link https://golang.org/project/ Go project
-.link https://golang.org/doc/effective_go.html Effective Go
-.link https://blog.golang.org/ The Go Blog
-
-
-* Referências externas e artigos
-
-.link https://eltonminetto.net/post/2019-06-01-object-calisthenics-golang/ Object Calisthenics em Golang
-.link http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/ 50 shades of Go 
-.link https://gobyexample.com Go by Example
-
-* Referências extras 
-
-.link http://felipequadros.com/programa%C3%A7%C3%A3o/b%C3%A1sico/iniciante/geral/teoria/2016/06/05/tipagem-fraca-forte-est%C3%A1tica-din%C3%A2mica-e-inferencia-de-tipo/ Tipagens
-
-

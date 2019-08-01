@@ -1,0 +1,132 @@
+################################################################################################################
+Fundamentos de Golang
+Vamos ver que Go não é apenas a linguagem do Google
+
+Marco Ollivier
+Software Engineer, OLX
+marco.ollivier@olxbr.com
+https://ollivier.com.br
+
+@marcopollivier
+
+################################################################################################################
+* Dia 2
+
+################################################################################################################
+* Ponteiros
+
+- Variável 
+
+É um item de armazenagem que contém um valor
+
+    var nome = "Marco"
+
+- Ponteiro 
+
+É o ENDEREÇO de uma variável. 
+
+    // Se eu declaro uma variável x 
+    var x int 
+
+    // A expressão &x refere-se ao endereço da variável x 
+    &x 
+
+    // &x fornecerá um ponteiro para uma variável inteira
+    // Ou seja, um valor do tipo *int 
+    // lido como um ponteiro para int
+    *int     
+
+* Ponteiros
+
+.play ponteiros001/main.go /^func exemplo1/,/^}/
+ 
+* Ponteiros
+
+Se agora declararmos uma outra variável chamada p e atribuirmos a ela &x,
+estamos dizendo que p aponta para o endereço de x 
+
+.play ponteiros002/main.go /^func main/,/^}/
+
+* Ponteiros
+
+Ponteiros acabam se tornando referências de informação
+Você de fato não sabe o valor, mas sim onde ele fica.
+
+.play ponteiros003/main.go /^func main/,/^}/
+
+* Ponteiros
+
+Nesse cenário você fez uma cópia e não uma referência
+
+.play ponteiros004/main.go /^func main/,/^}/
+
+################################################################################################################
+* Memória 
+
+- Heap: Area de alocação dinâmica
+Basicamente é um espaço para variáveis e dados criados durante a execução do programa
+Para alocar na Heap é mais caro e mais lento
+
+- Stack: pilha de funções
+Basicamente é limitado ao escopo de uma função 
+Aloca dados e variáveis ou ponteiros quando uma função é chamada 
+Desaloca quando a função é finalizada
+É uma área da memória onde o acesso é mais rápido
+
+* Memória 
+
+- Em C 
+mallor e free
+
+   char *ptr;
+   ptr = malloc (1);
+   scanf ("%c", ptr);
+   printf ("%c\n", *ptr + 1); 
+   free (ptr);
+
+- Em C++
+new e delete
+
+* Memória em Go
+
+- Escape Analysis
+
+Busca escolher a melhor estratégia de alocação de memória
+
+Ainda está em evolução. As vezes aloca na HEAP quando poderia alocar na STACK
+
+- Garbage Collector
+
+Desaloca quando julga ser o momento correto
+
+
+
+################################################################################################################
+* Concorrência
+
+################################################################################################################
+* Web Service 
+
+################################################################################################################ 
+* Livro: A Linguagem de Programação Go 
+
+.image img/refBook.jpg
+
+* Referências Go
+
+.link https://golang.org/project/ Go project
+.link https://golang.org/doc/effective_go.html Effective Go
+.link https://blog.golang.org/ The Go Blog
+
+
+* Referências externas e artigos
+
+.link https://eltonminetto.net/post/2019-06-01-object-calisthenics-golang/ Object Calisthenics em Golang
+.link http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/ 50 shades of Go 
+.link https://gobyexample.com Go by Example
+
+* Referências extras 
+
+.link http://felipequadros.com/programa%C3%A7%C3%A3o/b%C3%A1sico/iniciante/geral/teoria/2016/06/05/tipagem-fraca-forte-est%C3%A1tica-din%C3%A2mica-e-inferencia-de-tipo/ Tipagens
+
+
