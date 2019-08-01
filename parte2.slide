@@ -250,7 +250,30 @@ Um canal tem duas operações principais (comunicações): enviar e receber
 .play canais005/main.go /^func main/,/^}/
 
 ################################################################################################################
-* Web Service 
+* Web Server
+
+* net/http
+
+O Go oferece um pacote nativo para criar serviços http
+
+.play http/main.go
+
+* gorilla/mux
+
+O Go oferece um pacote nativo para criar serviços http
+
+.play http002/main.go
+
+
+################################################################################################################
+* Go Modules
+
+Desde a versão 1.11 nós temos gerenciadores de pacotes. 
+No nosso contexto agora, vamos ver o Go Modules 
+
+.code go.mod
+
+.code go.sum
 
 ################################################################################################################ 
 * Livro: A Linguagem de Programação Go 
