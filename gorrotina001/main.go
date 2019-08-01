@@ -1,0 +1,36 @@
+package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	fmt.Println("Oi mundo")
+	go spinner(100 * time.Millisecond)
+
+	fmt.Println("Estou aqui")
+	const n = 45
+	fmt.Println("Ainda estou aqui")
+	fibN := fib(n) //lento
+	fmt.Printf("\rFibonacci(%d) = %d\n", n, fibN)
+	fmt.Println("Tchau mundo")
+
+}
+
+func spinner(delay time.Duration) {
+	for {
+		for _, r := range `-\|/` {
+			fmt.Printf("\r%c", r)
+			time.Sleep(delay)
+		}
+	}
+}
+
+func fib(x int) int {
+	if x < 2 {
+		return x
+	}
+
+	return fib(x-1) + fib(x-2)
+}

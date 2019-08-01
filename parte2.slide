@@ -99,10 +99,125 @@ Ainda está em evolução. As vezes aloca na HEAP quando poderia alocar na STACK
 
 Desaloca quando julga ser o momento correto
 
+* Memória em Go
+
+.code memoria/main.go
+
+    // gcflags -> Go Compile Flags
+    $ go build -gcflags "-m -m" main.go
+
+
+    ./main.go:8:6: cannot inline f: marked go:noinline
+    ./main.go:3:6: can inline main as: func() { f() }
+    /var/folders/_g/yqsk795x71nck6z_gw5yz4319ztz68/T/go-build243815968/b001/_gomod_.go:6:6: can inline init.0 as: func() { keepalive_modinfo = __debug_modinfo__ }
+    ./main.go:10:9: &variavelComNomeGrandeParaChamarAtencao escapes to heap
+    ./main.go:10:9:         from ~r0 (return) at ./main.go:10:2
+    ./main.go:9:2: moved to heap: variavelComNomeGrandeParaChamarAtencao
+
+
+* Memória em Go - GC
+
+    $ go tool compile -S memoria/main.go
+
+    ...
+    0x0028 00040 (memoria/main.go:9)        CALL    runtime.newobject(SB)
+    ...
+
+    // implementation of new builtin
+    // compiler (both frontend and SSA backend) knows the signature
+    // of this function
+    func newobject(typ *_type) unsafe.Pointer {
+        return mallocgc(typ.size, typ, true)
+    }
+
+.link https://golang.org/src/runtime/malloc.go?s=36622:36663#L1057
+
 
 
 ################################################################################################################
 * Concorrência
+
+* Concorrência <> Paralelismo
+
+“Concurrency is about dealing with lots of things at once. Parallelism is about doing lots of things at once.”
+
+"Concorrência é a composição de execuções computacionais independentes" -- Rob Pile
+
+.link https://www.treinaweb.com.br/blog/concorrencia-paralelismo-processos-threads-sistemas-monotarefa-e-multitarefa/
+
+* Gorrotinas
+
+- Atividades que são executadas de forma concorrente
+- Um programa com duas ou mais funções consegue fazer chamadas de forma sequencial
+- Com as Gorrotinas, elas podem estar sendo chamadas ao mesmo tempo 
+
+- Quando um programa é iniciado, sua única gorrotina é a gorrotina main responsável por chamar a função main (nosso entrypoint)
+
+- Para que novas gorrotinas sejam chamadas, precisamos executar o comando go 
+
+    f() // cria uma função chamada f(). Espera que ela termine de executar
+
+    go f() // cria uma nova gorrotina f(). Não espera o fim da sua execução
+
+* Gorrotinas
+
+.code gorrotina001/main.go /^func fib/,/^}/
+
+* Gorrotinas
+
+.code gorrotina001/main.go /^func spinner/,/^}/
+
+* Gorrotinas
+
+.play gorrotina001/main.go /^func main/,/^}/
+
+- Quando o processamento da fib(int) encerra, minha função main retorna e isso encerra todas as gorrotinas abruptamente
+
+- As únicas formas de encerrar uma gorrotina é encerrando o programa ou a função main 
+
+* Gorrotinas
+
+.code gorrotina002/main.go
+
+* Canais
+
+- Se Gorrotinas são atividades de um programa Go concorrente 
+
+- Canais são as conexões entre elas
+
+- Um canal é um sistema de comunicação que permite que uma Gorrotina envie informações para outra
+
+- Uma gorrotina pode enviar dados para um canal, enquanto outras gorrotinas possam ler esse canal
+
+Para criar um canal, utilizamos a função make() 
+
+    // ch é do tipo chan int
+    ch := make(chan int) 
+
+* Canais
+
+Um canal tem duas operações principais (comunicações): enviar e receber 
+
+- Uma instrução de envio, transmite os dados de uma gorrotina para outra
+- Por sua vez, a gorrotina que recebe a informação, executa uma expressão de recepção 
+- O operador utilizado em canais é p <-
+
+    // Instrução de envio 
+    ch <- x 
+
+    // Instrução de recepção com atribuição
+    x = <- ch
+
+    // Instrução de recepção com resultado descartado
+    <- ch
+
+- Para indicar que em algum momento aquele canal não enviará mais valores, existe a função close()
+
+    close(ch)
+
+* Canais
+
+
 
 ################################################################################################################
 * Web Service 
