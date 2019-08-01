@@ -284,6 +284,51 @@ O subcomando go test é um executor de testes nativo para pacotes Go
 
 Por padrão todos os arquivos que estiverem no padrão *_test.go serão executados quando chamarmos o comando de teste 
 
+Existem 3 tipos de testes
+
+- teste: função começa com Test e valida uma lógica de um programa
+- benchmark: foco em pedir desempenho. Funções começam com Benchmark
+- example: suporta documentação verificada. Função começa com Example
+
+* Testes - teste function
+
+    func IsPalindrome(s string) bool {
+        for i := range s {
+            if s[i] != s[len(s)-1-i] {
+                return false
+            }
+        }
+        return true
+    }
+
+    func TestPalindrome(t *testing.T) {
+        if !IsPalindrome("kayak") {
+            t.Error(`IsPalindrome("kayak") = false`)
+        }
+    }
+
+* Benchmark
+
+    func BenchmarkHello(b *testing.B) {
+        for i := 0; i < b.N; i++ {
+            fmt.Sprintf("hello")
+        }
+    }
+
+* Example 
+
+    func ExampleHello() {
+        fmt.Println("hello")
+        // Output: hello
+    }
+
+    func ExampleSalutations() {
+        fmt.Println("hello, and")
+        fmt.Println("goodbye")
+        // Output:
+        // hello, and
+        // goodbye
+    }
 
 
 ################################################################################################################ 
