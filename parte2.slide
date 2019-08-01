@@ -276,6 +276,17 @@ No nosso contexto agora, vamos ver o Go Modules
 .code go.sum
 
 ################################################################################################################ 
+* Testes
+
+O subcomando go test é um executor de testes nativo para pacotes Go
+
+    $ go test 
+
+Por padrão todos os arquivos que estiverem no padrão *_test.go serão executados quando chamarmos o comando de teste 
+
+
+
+################################################################################################################ 
 * Livro: A Linguagem de Programação Go 
 
 .image img/refBook.jpg
