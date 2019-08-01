@@ -217,7 +217,37 @@ Um canal tem duas operações principais (comunicações): enviar e receber
 
 * Canais
 
+.play canais001/main.go
 
+* Canais - Buffers
+
+- É possível você definir a quantidade de valores que você está passando em um canal
+- A função make é preparada para receber um segundo parâmetro opcional com o tamanho do Buffers
+
+    ch = make(chan int)         // canal sem buffer
+    ch = make(chan int, 0)      // canal sem buffer
+    ch = make(chan int, 3)      // canal com buffer de capacidade 3
+
+* Canais - Buffers
+
+- A grande vantagem de usar um buffer é você não ficar dependente da recepção da informação 
+- Enquanto a gorrotina que recebe a informação não executar uma recepção, a gorrotina que está enviando fica travada
+
+* Canais - Buffers
+
+.play canais002/main.go
+
+* Canais - Buffers
+
+.play canais003/main.go
+
+* Canais - Buffers
+
+.play canais004/main.go
+
+* Canais
+
+.play canais005/main.go /^func main/,/^}/
 
 ################################################################################################################
 * Web Service 
