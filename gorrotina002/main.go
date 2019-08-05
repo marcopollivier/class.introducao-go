@@ -8,7 +8,7 @@ import (
 func main() {
 	go print(45)
 	go print(10)
-	go print(1)
+	go print(9)
 	spinner(100 * time.Millisecond) // usando agora para travar a execução
 }
 

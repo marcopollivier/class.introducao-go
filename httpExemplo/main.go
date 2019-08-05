@@ -6,15 +6,12 @@ import (
 )
 
 func main() {
-
 	http.HandleFunc("/clientes", getClientes)
 
 	http.ListenAndServe(":8080", nil)
-
 }
 
 func getClientes(w http.ResponseWriter, r *http.Request) {
-
 	if r.Method != "GET" {
 		w.WriteHeader(http.StatusMethodNotAllowed)
 		return

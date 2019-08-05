@@ -9,16 +9,22 @@ func main() {
 	naturais := make(chan int)
 	squares := make(chan int)
 
+	go func() { //squarer
+		for {
+			x := <-naturais
+			squares <- x * x
+		}
+	}()
+
 	go func() { //counter
 		for x := 1; x < 20; x++ {
 			naturais <- x
 		}
 	}()
 
-	go func() { //squarer
-		for {
-			x := <-naturais
-			squares <- x * x
+	go func() { //counter
+		for x := 1; x < 20; x++ {
+			naturais <- x
 		}
 	}()
 

@@ -6,9 +6,13 @@ import (
 )
 
 func TestPalindrome(t *testing.T) {
-	if !IsPalindrome("kayak") {
+	if !isPalindrome("kayak") {
 		t.Error(`IsPalindrome("kayak") = false`)
 	}
+}
+
+func BenchmarkPalindrome(b *testing.B) {
+	isPalindrome("kayak")
 }
 
 func BenchmarkHello(b *testing.B) {
@@ -28,4 +32,18 @@ func ExampleSalutations() {
 	// Output:
 	// hello, and
 	// goodbye
+}
+
+type Pessoa struct {
+	nome string
+}
+
+func f() Pessoa {
+	return Pessoa{nome: "Marco"}
+}
+
+func ExampleName() {
+	f()
+	// Output:
+	// { Marco }
 }

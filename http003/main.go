@@ -12,7 +12,7 @@ import (
 )
 
 type Todo struct {
-	Name      string
+	Name      string `json:"nome_aqui"`
 	Completed bool
 	Due       time.Time
 }
@@ -23,12 +23,18 @@ func main() {
 
 	router := mux.NewRouter().StrictSlash(true)
 
-	router.HandleFunc("/todos/{todoId}", todoShow).Methods("GET")
+	router.HandleFunc("/todos/{todoId}", todoShow).Methods("GET", "OPTIONS")
 
 	router.HandleFunc("/todos", todoIndex).Methods("GET")
 	router.HandleFunc("/todos", postHandler).Methods("POST")
 
 	log.Fatal(http.ListenAndServe(":8080", router))
+}
+
+func todoShow(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	todoId := vars["todoId"]
+	fmt.Fprintln(w, "Todo show:", todoId)
 }
 
 func postHandler(w http.ResponseWriter, r *http.Request) {
@@ -46,10 +52,4 @@ func todoIndex(w http.ResponseWriter, r *http.Request) {
 	}
 
 	json.NewEncoder(w).Encode(todos)
-}
-
-func todoShow(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	todoId := vars["todoId"]
-	fmt.Fprintln(w, "Todo show:", todoId)
 }
